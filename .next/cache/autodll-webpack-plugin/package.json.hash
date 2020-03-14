@@ -1,0 +1,1 @@
+{"name":"covid-19","version":"1.0.0","description":"","main":"index.js","dependencies":{"@material-ui/core":"^4.9.5","next":"^9.3.0","react":"^16.13.0","react-dom":"^16.13.0","styled-components":"^5.0.1"},"devDependencies":{},"scripts":{"start":"next"},"author":"","license":"ISC","readme":"ERROR: No README data found!","_id":"covid-19@1.0.0"}
