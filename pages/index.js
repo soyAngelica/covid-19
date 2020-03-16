@@ -6,7 +6,7 @@ import CountrySelector from "../components/CountrySelect";
 export default function Index() {
     return (
     <div>
-        <Stats></Stats>
+        <Stats url={'https://covid19.mathdro.id/api'}> </Stats>
         <CountrySelector></CountrySelector>
     </div>
 

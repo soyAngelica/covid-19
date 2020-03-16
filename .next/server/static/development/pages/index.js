@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,50 +106,84 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _src_useStats__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/useStats */ "./src/useStats.js");
+/* harmony import */ var _components_Stats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Stats */ "./components/Stats.js");
 var _jsxFileName = "C:\\fullstack\\covid-19\\components\\CountrySelect.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
+
 function CountrySelector() {
-  const countries = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/countries');
-  if (!countries) return __jsx("p", {
+  const {
+    stats: countries,
+    loading,
+    error
+  } = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/countries');
+  const {
+    0: selectedCountry,
+    1: setSelectedCountry
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('MX');
+  if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 8
     },
     __self: this
   }, "Loading...");
-  console.log(countries);
-  return __jsx("div", {
+  if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     },
     __self: this
-  }, __jsx("p", {
+  }, "Loading...");
+  if (error) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
-  }, "Countries"), __jsx("select", {
+  }, "Error...");
+  return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 12
+    },
+    __self: this
+  }, __jsx("select", {
+    onChange: e => {
+      setSelectedCountry(e.target.value);
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
     },
     __self: this
   }, Object.entries(countries.countries).map(([country, code]) => {
     return __jsx("option", {
+      selected: selectedCountry === countries.iso3[code],
       key: code,
-      value: code,
+      value: countries.iso3[code],
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 14
+        lineNumber: 18
       },
       __self: this
-    }, country);
-  })));
+    }, country, countries.code);
+  })), __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  }, selectedCountry), __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 27
+    },
+    __self: this
+  }, " "));
 }
 
 /***/ }),
@@ -172,74 +206,87 @@ var _jsxFileName = "C:\\fullstack\\covid-19\\components\\Stats.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-function Stats() {
-  const stats = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api');
-  if (!stats) return __jsx("p", {
+function Stats({
+  url
+}) {
+  const {
+    stats,
+    loading,
+    error
+  } = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])(url); // console.log(stats, loading, error);
+
+  if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 6
+      lineNumber: 7
     },
     __self: this
   }, "Loading...");
-  console.log(stats);
-  return __jsx("div", {
+  if (error) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 8
     },
     __self: this
-  }, __jsx("div", {
+  }, error.message, "...");
+  return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
     },
     __self: this
-  }, __jsx("h3", {
+  }, __jsx("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 11
     },
     __self: this
-  }, "Confirmados"), __jsx("p", {
+  }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
     },
     __self: this
-  }, stats.confirmed.value)), __jsx("div", {
+  }, "Confirmados"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 13
     },
     __self: this
-  }, __jsx("h3", {
+  }, stats.confirmed.value)), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 15
     },
     __self: this
-  }, "Muertos"), __jsx("p", {
+  }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, stats.deaths.value)), __jsx("div", {
+  }, "Muertos"), __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 17
     },
     __self: this
-  }, __jsx("h3", {
+  }, stats.deaths.value)), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }, "Curados"), __jsx("p", {
+  }, __jsx("h3", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 20
+    },
+    __self: this
+  }, "Curados"), __jsx("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
     },
     __self: this
   }, stats.recovered.value)));
@@ -274,12 +321,13 @@ function Index() {
     },
     __self: this
   }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    url: 'https://covid19.mathdro.id/api',
     __source: {
       fileName: _jsxFileName,
       lineNumber: 9
     },
     __self: this
-  }), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, " "), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 10
@@ -308,21 +356,45 @@ function useStats(url) {
     0: stats,
     1: setStats
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  const {
+    0: loading,
+    1: setLoading
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(true);
+  const {
+    0: error,
+    1: setError
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])();
+  console.log(stats, loading, error);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
     async function fetchData() {
-      console.log('Fetching Data');
-      const data = await fetch(url).then(res => res.json());
-      setStats(data);
+      setLoading(true);
+      setError();
+      const data = await fetch(url).then(res => res.json()).catch(err => {
+        setError(err);
+      });
+
+      if (!data.error) {
+        setStats(data);
+      } else {
+        setStats('');
+        setError(data.error);
+      }
+
+      setLoading(false);
     }
 
     fetchData();
-  }, []);
-  return stats;
+  }, [url]);
+  return {
+    stats,
+    loading,
+    error
+  };
 }
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!******************************!*\
   !*** multi ./pages/index.js ***!
   \******************************/

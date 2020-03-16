@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import useStats from "../src/useStats";
 
-export default function Stats() {
-    const stats = useStats('https://covid19.mathdro.id/api');
-    if(!stats) return <p>Loading...</p>
-    console.log(stats);
+export default function Stats({url}) {
+    const {stats, loading, error} = useStats(url);
+    // console.log(stats, loading, error);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error.message}...</p>;
     return (
         <div>
             <div>
