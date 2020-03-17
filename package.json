@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@material-ui/core": "^4.9.5",
+    "heroku": "^7.39.0",
     "next": "^9.3.0",
     "react": "^16.13.0",
     "react-country-flag": "^2.0.1",
@@ -13,12 +14,15 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "next",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build"
   },
   "author": "",
   "license": "ISC",
   "engines": {
-    "node": "10.x"
+    "node": "13.6.0",
+    "npm": "6.13.4"
   }
 }
