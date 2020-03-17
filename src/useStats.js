@@ -4,7 +4,6 @@ export default function useStats(url) {
     const [stats, setStats] = useState();
     const [loading, setLoading]  = useState(true);
     const [error, setError]  = useState();
-    console.log(stats, loading, error);
     useEffect(() => {
         async function fetchData() {
             setLoading(true);
