@@ -3,6 +3,7 @@ import useStats from "../src/useStats";
 import Stats from "../components/Stats";
 import Last from "../components/lastUpdate";
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../src/theme';
 import Grid from '@material-ui/core/Grid';
@@ -56,9 +57,11 @@ const BootstrapInput = withStyles(theme => ({
   const useStyles = makeStyles(theme => ({
     margin: {
       margin: theme.spacing(1),
+
+
     },
     paper: {
-        padding: theme.spacing(1),
+        padding: theme.padding,
         textAlign: 'center',
         color: '#FFF',
         background: 'linear-gradient(45deg, #654ea3 30%, #eaafc8 90%)',
@@ -69,11 +72,13 @@ const BootstrapInput = withStyles(theme => ({
 
 export default function CountrySelector() {
     const classes = useStyles();
+    const theme = useTheme();
     const {stats: countries, loading, error} = useStats('https://covid19.mathdro.id/api/countries');
     const [selectedCountry, setSelectedCountry] = useState('MX');
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error...</p>;
+    console.log(theme.paper)
     
     return (
         <Grid item xs={12}>
@@ -97,7 +102,7 @@ export default function CountrySelector() {
                         )
                     })}
             </NativeSelect >
-            <Paper className={classes.paper}>
+            <Paper className={classes.paper}  >
                 <Stats url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}></Stats>
             </Paper>
             <Last url={`https://covid19.mathdro.id/api/countries/${selectedCountry}`}  />

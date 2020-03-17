@@ -8,6 +8,7 @@ const theme = createMuiTheme({
     primary: {
       main: '#FFF',
       light: '#FFF',
+      background: 'linear-gradient(45deg, #373B44 30%, #4286f4 90%)',
     },
     secondary: {
       main: '#19857b',
@@ -15,14 +16,13 @@ const theme = createMuiTheme({
     error: {
       main: red.A400,
     },
-    background: {
-      default: '#fff',
-    },
   },
- 
   paper: {
     margin: 'auto',
     maxWidth: 500,
+    textAlign: 'center',
+    color: '#FFF',
+    background: 'linear-gradient(45deg, #654ea3 30%, #eaafc8 90%)'
   },
   image: {
     width: 128,
@@ -34,9 +34,8 @@ const theme = createMuiTheme({
     maxWidth: '100%',
     maxHeight: '100%',
   },
-  box: {
-    textAlign: 'center',
-  }
+  spacing: 8,
+  padding: '20px 0px'
 });
 
 export default theme;

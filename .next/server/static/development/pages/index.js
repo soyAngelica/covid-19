@@ -139,6 +139,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
 const BootstrapInput = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["withStyles"])(theme => ({
   root: {
     'label + &': {
@@ -172,7 +173,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.padding,
     textAlign: 'center',
     color: '#FFF',
     background: 'linear-gradient(45deg, #654ea3 30%, #eaafc8 90%)',
@@ -181,6 +182,7 @@ const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["
 }));
 function CountrySelector() {
   const classes = useStyles();
+  const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["useTheme"])();
   const {
     stats: countries,
     loading,
@@ -193,23 +195,24 @@ function CountrySelector() {
   if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 75
+      lineNumber: 79
     },
     __self: this
   }, "Loading...");
   if (error) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 76
+      lineNumber: 80
     },
     __self: this
   }, "Error...");
+  console.log(theme.paper);
   return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 84
     },
     __self: this
   }, __jsx(react_country_flag__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -223,7 +226,7 @@ function CountrySelector() {
     title: selectedCountry,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 85
     },
     __self: this
   }), __jsx(_material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -231,7 +234,7 @@ function CountrySelector() {
     input: __jsx(BootstrapInput, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 90
+        lineNumber: 95
       },
       __self: this
     }),
@@ -240,7 +243,7 @@ function CountrySelector() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 95
     },
     __self: this
   }, Object.entries(countries.countries).map(([country, code]) => {
@@ -250,7 +253,7 @@ function CountrySelector() {
       value: code,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 94
+        lineNumber: 99
       },
       __self: this
     }, countries.iso3[code], " - ", country);
@@ -258,21 +261,21 @@ function CountrySelector() {
     className: classes.paper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 100
+      lineNumber: 105
     },
     __self: this
   }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 106
     },
     __self: this
   })), __jsx(_components_lastUpdate__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 103
+      lineNumber: 108
     },
     __self: this
   }));
@@ -307,9 +310,15 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__["makeStyles"])(theme => ({
+  format: {
+    color: '#FFF'
+  }
+}));
 function Stats({
   url
 }) {
+  const classes = useStyles();
   const {
     stats,
     loading,
@@ -321,7 +330,7 @@ function Stats({
     gutterBottom: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 17
     },
     __self: this
   }, "Loading...");
@@ -331,7 +340,7 @@ function Stats({
     gutterBottom: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 11
+      lineNumber: 18
     },
     __self: this
   }, "No data"); // {error.message.split('not')[0]}
@@ -339,61 +348,67 @@ function Stats({
   return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 21
     },
     __self: this
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h5",
     component: "h5",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 22
     },
     __self: this
   }, "Confirmados"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h6",
     component: "h6",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 18
+      lineNumber: 25
     },
     __self: this
   }, stats.confirmed.value), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h5",
     component: "h5",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 28
     },
     __self: this
   }, "Muertos"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h6",
     component: "h6",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 31
     },
     __self: this
   }, stats.deaths.value), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h5",
     component: "h5",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 34
     },
     __self: this
   }, "Curados"), __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
     variant: "h6",
     component: "h6",
     gutterBottom: true,
+    className: classes.format,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 37
     },
     __self: this
   }, stats.recovered.value));
@@ -496,7 +511,7 @@ function Last({
       lineNumber: 29
     },
     __self: this
-  }, "Last Update: ", new Date(stats.lastUpdate).toLocaleDateString('en-US', options)));
+  }, "\xDAltima actualizaci\xF3n: ", new Date(stats.lastUpdate).toLocaleDateString('en-US', options)));
 }
 
 /***/ }),
@@ -528,10 +543,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Box */ "@material-ui/core/Box");
 /* harmony import */ var _material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var _material_ui_system__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/system */ "@material-ui/system");
-/* harmony import */ var _material_ui_system__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_material_ui_system__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_Stats__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/Stats */ "./components/Stats.js");
-/* harmony import */ var _components_CountrySelect__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/CountrySelect */ "./components/CountrySelect.js");
+/* harmony import */ var _components_Stats__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Stats */ "./components/Stats.js");
+/* harmony import */ var _components_CountrySelect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/CountrySelect */ "./components/CountrySelect.js");
 var _jsxFileName = "C:\\fullstack\\covid-19\\pages\\index.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -545,48 +558,28 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
-
-
-const useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["makeStyles"])(theme => ({
-  container: {
-    background: ''
-  },
-  paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: '#FFF',
-    background: 'linear-gradient(45deg, #654ea3 30%, #eaafc8 90%)'
-  },
-  last: {
-    padding: theme.spacing(3)
-  }
-}));
 function Index() {
-  const classes = useStyles();
-  console.log(_src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].palette.primary.light);
-  return __jsx("div", {
-    style: {
-      background: 'linear-gradient(45deg, #373B44 30%, #4286f4 90%)',
-      minHeight: '100vh'
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: this
-  }, __jsx(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ThemeProvider"], {
+  return __jsx(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["ThemeProvider"], {
     theme: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"],
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 17
+    },
+    __self: this
+  }, __jsx("div", {
+    style: {
+      background: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].palette.primary.background
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
     },
     __self: this
   }, __jsx(_material_ui_core_Container__WEBPACK_IMPORTED_MODULE_5___default.a, {
     maxWidth: "sm",
-    className: classes.container,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 19
     },
     __self: this
   }, __jsx(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_4___default.a, {
@@ -596,15 +589,17 @@ function Index() {
     gutterBottom: "true",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 20
     },
     __self: this
   }, __jsx(_material_ui_core_Box__WEBPACK_IMPORTED_MODULE_8___default.a, {
-    className: classes.last,
-    color: "primary.main",
+    style: {
+      color: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].paper.color,
+      padding: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].padding
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 21
     },
     __self: this
   }, "COVID-19 CORONAVIRUS WORLD DATA ", __jsx("span", {
@@ -612,7 +607,7 @@ function Index() {
     "aria-label": "sheep",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 22
     },
     __self: this
   }, "\uD83E\uDDA0"))), __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -620,7 +615,7 @@ function Index() {
     spacing: 3,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 25
     },
     __self: this
   }, __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -628,27 +623,31 @@ function Index() {
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 26
     },
     __self: this
   }, __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7___default.a, {
-    className: classes.paper,
+    style: {
+      background: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].paper.background,
+      textAlign: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].paper.textAlign,
+      padding: _src_theme__WEBPACK_IMPORTED_MODULE_2__["default"].padding
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 27
     },
     __self: this
-  }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_9__["default"], {
     url: 'https://covid19.mathdro.id/api',
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 48
+      lineNumber: 28
     },
     __self: this
-  })))), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  })))), __jsx(_components_CountrySelect__WEBPACK_IMPORTED_MODULE_10__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 52
+      lineNumber: 32
     },
     __self: this
   }))));
@@ -679,21 +678,22 @@ const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["crea
   palette: {
     primary: {
       main: '#FFF',
-      light: '#FFF'
+      light: '#FFF',
+      background: 'linear-gradient(45deg, #373B44 30%, #4286f4 90%)'
     },
     secondary: {
       main: '#19857b'
     },
     error: {
       main: _material_ui_core_colors__WEBPACK_IMPORTED_MODULE_0__["red"].A400
-    },
-    background: {
-      default: '#fff'
     }
   },
   paper: {
     margin: 'auto',
-    maxWidth: 500
+    maxWidth: 500,
+    textAlign: 'center',
+    color: '#FFF',
+    background: 'linear-gradient(45deg, #654ea3 30%, #eaafc8 90%)'
   },
   image: {
     width: 128,
@@ -705,9 +705,8 @@ const theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_1__["crea
     maxWidth: '100%',
     maxHeight: '100%'
   },
-  box: {
-    textAlign: 'center'
-  }
+  spacing: 8,
+  padding: '20px 0px'
 });
 /* harmony default export */ __webpack_exports__["default"] = (theme);
 
@@ -909,17 +908,6 @@ module.exports = require("@material-ui/core/styles");
 /***/ (function(module, exports) {
 
 module.exports = require("@material-ui/styles");
-
-/***/ }),
-
-/***/ "@material-ui/system":
-/*!**************************************!*\
-  !*** external "@material-ui/system" ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("@material-ui/system");
 
 /***/ }),
 

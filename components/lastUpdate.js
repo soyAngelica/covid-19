@@ -26,7 +26,7 @@ export default function Last({url}) {
     if (error) return <Typography variant="subtitle1" component="subtitle1" color="light" align="center" gutterBottom="true">  <Box className={classes.last} color="primary.main"> Last Update: No Data</Box></Typography>;
     return (
         <Typography variant="subtitle1" component="subtitle1" color="light" align="center" gutterBottom="true">
-             <Box className={classes.last} color="primary.main">Last Update: { (new Date(stats.lastUpdate)).toLocaleDateString('en-US', options) }</Box>
+            <Box className={classes.last} color="primary.main">Última actualización: { (new Date(stats.lastUpdate)).toLocaleDateString('en-US', options) }</Box>
         </Typography>
     );
 }
