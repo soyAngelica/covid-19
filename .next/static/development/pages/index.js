@@ -100,30 +100,23 @@ function CountrySelector() {
   if (loading) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 79
+      lineNumber: 78
     },
     __self: this
   }, "Loading...");
   if (error) return __jsx("p", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 80
+      lineNumber: 79
     },
     __self: this
   }, "Error...");
-  var values = Object.values(countries.countries); // console.log(values);
-
-  console.log(values.map(function (_ref) {
-    var name = _ref.name,
-        iso2 = _ref.iso2;
-    return "\n".concat(name, " ").concat(iso2);
-  }).join(''));
   return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 90
+      lineNumber: 81
     },
     __self: this
   }, __jsx(react_country_flag__WEBPACK_IMPORTED_MODULE_11__["default"], {
@@ -137,7 +130,7 @@ function CountrySelector() {
     title: selectedCountry,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 91
+      lineNumber: 82
     },
     __self: this
   }), __jsx(_material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -145,7 +138,7 @@ function CountrySelector() {
     input: __jsx(BootstrapInput, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 101
+        lineNumber: 92
       },
       __self: this
     }),
@@ -154,19 +147,19 @@ function CountrySelector() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 101
+      lineNumber: 92
     },
     __self: this
-  }, Object.values(countries.countries).map(function (_ref2) {
-    var name = _ref2.name,
-        iso2 = _ref2.iso2;
+  }, Object.values(countries.countries).map(function (_ref) {
+    var name = _ref.name,
+        iso2 = _ref.iso2;
     return __jsx("option", {
       selected: selectedCountry === iso2,
       key: iso2,
       value: iso2,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 104
+        lineNumber: 95
       },
       __self: this
     }, name, " (", iso2, ")");
@@ -174,21 +167,21 @@ function CountrySelector() {
     className: classes.paper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 110
+      lineNumber: 101
     },
     __self: this
   }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(selectedCountry),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 111
+      lineNumber: 102
     },
     __self: this
   })), __jsx(_components_lastUpdate__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(selectedCountry),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 113
+      lineNumber: 104
     },
     __self: this
   }));

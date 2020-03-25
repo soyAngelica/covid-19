@@ -75,17 +75,8 @@ export default function CountrySelector() {
     const theme = useTheme();
     const {stats: countries, loading, error} = useStats('https://covid19.mathdro.id/api/countries');
     const [selectedCountry, setSelectedCountry] = useState('MX');
-
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error...</p>;
-
-    const values = Object.values(countries.countries);
-    // console.log(values);
-
-    console.log(values.map(({name,iso2}) => `\n${name} ${iso2}`).join('') );
-    
-
-    
     return (
         <Grid item xs={12}>
             <ReactCountryFlag 
