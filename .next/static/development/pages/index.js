@@ -10,24 +10,22 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return CountrySelector; });
-/* harmony import */ var _babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _src_useStats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../src/useStats */ "./src/useStats.js");
-/* harmony import */ var _components_Stats__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Stats */ "./components/Stats.js");
-/* harmony import */ var _components_lastUpdate__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/lastUpdate */ "./components/lastUpdate.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
-/* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../src/theme */ "./src/theme.js");
-/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
-/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
-/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
-/* harmony import */ var _material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/NativeSelect */ "./node_modules/@material-ui/core/esm/NativeSelect/index.js");
-/* harmony import */ var _material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/InputBase */ "./node_modules/@material-ui/core/esm/InputBase/index.js");
-/* harmony import */ var react_country_flag__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-country-flag */ "./node_modules/react-country-flag/dist/index.es.js");
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _src_useStats__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../src/useStats */ "./src/useStats.js");
+/* harmony import */ var _components_Stats__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Stats */ "./components/Stats.js");
+/* harmony import */ var _components_lastUpdate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/lastUpdate */ "./components/lastUpdate.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/index.js");
+/* harmony import */ var _src_theme__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../src/theme */ "./src/theme.js");
+/* harmony import */ var _material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Grid */ "./node_modules/@material-ui/core/esm/Grid/index.js");
+/* harmony import */ var _material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/Paper */ "./node_modules/@material-ui/core/esm/Paper/index.js");
+/* harmony import */ var _material_ui_core_Select__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Select */ "./node_modules/@material-ui/core/esm/Select/index.js");
+/* harmony import */ var _material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/NativeSelect */ "./node_modules/@material-ui/core/esm/NativeSelect/index.js");
+/* harmony import */ var _material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/InputBase */ "./node_modules/@material-ui/core/esm/InputBase/index.js");
+/* harmony import */ var react_country_flag__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-country-flag */ "./node_modules/react-country-flag/dist/index.es.js");
 var _jsxFileName = "C:\\fullstack\\covid-19\\components\\CountrySelect.js";
 
-var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
@@ -42,7 +40,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 
-var BootstrapInput = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["withStyles"])(function (theme) {
+var BootstrapInput = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["withStyles"])(function (theme) {
   return {
     root: {
       'label + &': {
@@ -71,8 +69,8 @@ var BootstrapInput = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5_
       }
     }
   };
-})(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_11__["default"]);
-var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["makeStyles"])(function (theme) {
+})(_material_ui_core_InputBase__WEBPACK_IMPORTED_MODULE_10__["default"]);
+var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["makeStyles"])(function (theme) {
   return {
     margin: {
       margin: theme.spacing(1)
@@ -88,14 +86,14 @@ var useStyles = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["ma
 });
 function CountrySelector() {
   var classes = useStyles();
-  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["useTheme"])();
+  var theme = Object(_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_4__["useTheme"])();
 
-  var _useStats = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_2__["default"])('https://covid19.mathdro.id/api/countries'),
+  var _useStats = Object(_src_useStats__WEBPACK_IMPORTED_MODULE_1__["default"])('https://covid19.mathdro.id/api/countries'),
       countries = _useStats.stats,
       loading = _useStats.loading,
       error = _useStats.error;
 
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('MX'),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])('MX'),
       selectedCountry = _useState[0],
       setSelectedCountry = _useState[1];
 
@@ -113,16 +111,22 @@ function CountrySelector() {
     },
     __self: this
   }, "Error...");
-  console.log(theme.paper);
-  return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  var values = Object.values(countries.countries); // console.log(values);
+
+  console.log(values.map(function (_ref) {
+    var name = _ref.name,
+        iso2 = _ref.iso2;
+    return "\n".concat(name, " ").concat(iso2);
+  }).join(''));
+  return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 90
     },
     __self: this
-  }, __jsx(react_country_flag__WEBPACK_IMPORTED_MODULE_12__["default"], {
+  }, __jsx(react_country_flag__WEBPACK_IMPORTED_MODULE_11__["default"], {
     countryCode: selectedCountry,
     svg: true,
     style: {
@@ -133,15 +137,15 @@ function CountrySelector() {
     title: selectedCountry,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 91
     },
     __self: this
-  }), __jsx(_material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_10__["default"], {
+  }), __jsx(_material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_9__["default"], {
     id: "demo-customized-select-native",
     input: __jsx(BootstrapInput, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 101
       },
       __self: this
     }),
@@ -150,43 +154,41 @@ function CountrySelector() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 101
     },
     __self: this
-  }, Object.entries(countries.countries).map(function (_ref) {
-    var _ref2 = Object(_babel_runtime_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_ref, 2),
-        country = _ref2[0],
-        code = _ref2[1];
-
+  }, Object.values(countries.countries).map(function (_ref2) {
+    var name = _ref2.name,
+        iso2 = _ref2.iso2;
     return __jsx("option", {
-      selected: selectedCountry === code,
-      key: code,
-      value: code,
+      selected: selectedCountry === iso2,
+      key: iso2,
+      value: iso2,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 104
       },
       __self: this
-    }, countries.iso3[code], " - ", country);
-  })), __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }, name, " (", iso2, ")");
+  })), __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7__["default"], {
     className: classes.paper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 110
     },
     __self: this
-  }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(selectedCountry),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 111
     },
     __self: this
-  })), __jsx(_components_lastUpdate__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  })), __jsx(_components_lastUpdate__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: "https://covid19.mathdro.id/api/countries/".concat(selectedCountry),
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 113
     },
     __self: this
   }));

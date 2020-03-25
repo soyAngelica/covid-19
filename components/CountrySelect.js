@@ -78,7 +78,13 @@ export default function CountrySelector() {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error...</p>;
-    console.log(theme.paper)
+
+    const values = Object.values(countries.countries);
+    // console.log(values);
+
+    console.log(values.map(({name,iso2}) => `\n${name} ${iso2}`).join('') );
+    
+
     
     return (
         <Grid item xs={12}>
@@ -93,11 +99,10 @@ export default function CountrySelector() {
                 title={selectedCountry}
             />
             <NativeSelect  id="demo-customized-select-native"  input={<BootstrapInput />} onChange={(e) => {setSelectedCountry(e.target.value)}}>
-                    {Object.entries(countries.countries).map(([country, code]) => {
-                        
+                    {Object.values(countries.countries).map(({name, iso2}) => {
                         return (
-                            <option selected={selectedCountry === code} key={code} value={code}>
-                            {countries.iso3[code]} - {country} 
+                            <option selected={selectedCountry === iso2} key={iso2} value={iso2}>
+                             {name} ({iso2})
                             </option>
                         )
                     })}

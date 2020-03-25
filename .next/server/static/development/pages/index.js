@@ -206,13 +206,18 @@ function CountrySelector() {
     },
     __self: this
   }, "Error...");
-  console.log(theme.paper);
+  const values = Object.values(countries.countries); // console.log(values);
+
+  console.log(values.map(({
+    name,
+    iso2
+  }) => `\n${name} ${iso2}`).join(''));
   return __jsx(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6___default.a, {
     item: true,
     xs: 12,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 84
+      lineNumber: 90
     },
     __self: this
   }, __jsx(react_country_flag__WEBPACK_IMPORTED_MODULE_11___default.a, {
@@ -226,7 +231,7 @@ function CountrySelector() {
     title: selectedCountry,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 85
+      lineNumber: 91
     },
     __self: this
   }), __jsx(_material_ui_core_NativeSelect__WEBPACK_IMPORTED_MODULE_9___default.a, {
@@ -234,7 +239,7 @@ function CountrySelector() {
     input: __jsx(BootstrapInput, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 95
+        lineNumber: 101
       },
       __self: this
     }),
@@ -243,39 +248,42 @@ function CountrySelector() {
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 95
+      lineNumber: 101
     },
     __self: this
-  }, Object.entries(countries.countries).map(([country, code]) => {
+  }, Object.values(countries.countries).map(({
+    name,
+    iso2
+  }) => {
     return __jsx("option", {
-      selected: selectedCountry === code,
-      key: code,
-      value: code,
+      selected: selectedCountry === iso2,
+      key: iso2,
+      value: iso2,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 99
+        lineNumber: 104
       },
       __self: this
-    }, countries.iso3[code], " - ", country);
+    }, name, " (", iso2, ")");
   })), __jsx(_material_ui_core_Paper__WEBPACK_IMPORTED_MODULE_7___default.a, {
     className: classes.paper,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 105
+      lineNumber: 110
     },
     __self: this
   }, __jsx(_components_Stats__WEBPACK_IMPORTED_MODULE_2__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 106
+      lineNumber: 111
     },
     __self: this
   })), __jsx(_components_lastUpdate__WEBPACK_IMPORTED_MODULE_3__["default"], {
     url: `https://covid19.mathdro.id/api/countries/${selectedCountry}`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 108
+      lineNumber: 113
     },
     __self: this
   }));
